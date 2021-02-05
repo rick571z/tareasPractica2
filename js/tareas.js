@@ -156,3 +156,26 @@ function filtrarPorPrioridad(miPrioridad, listaDePrioridades) {
     const miListaPrioridad = listaDePrioridades.filter(valor => valor.prioridad == miPrioridad);
     return miListaPrioridad;
 }
+
+
+
+//=========================================================================================
+
+let inputPalabras = document.querySelector('#nombre');
+inputPalabras.addEventListener('keypress', getPalabraTareas);
+
+function getPalabraTareas(event) {
+    if (event.type == 'keypress') {
+        let palabraBuscar = inputPalabras.value;
+        let listaTarea = buscarPorPalabra(palabraBuscar, listaTareas);
+        printListado(listaTarea);
+    }
+}
+
+
+function buscarPorPalabra(valor, milistaTareas) {
+    const preLista = milistaTareas.filter(contact => {
+        return contact.titulo.toLowerCase().includes(valor.toLowerCase());
+    })
+    return preLista;
+}
