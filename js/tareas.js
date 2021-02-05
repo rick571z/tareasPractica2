@@ -179,3 +179,16 @@ function buscarPorPalabra(valor, milistaTareas) {
     })
     return preLista;
 }
+
+
+//=========================================================================================
+
+function Eliminar2(event, id) {
+
+    const indice = listaTareas.findIndex(tarea => {
+        return tarea.idTarea == id
+    });
+
+    listaTareas.splice(indice, 1);
+    event.target.parentNode.parentNode.remove();
+}
