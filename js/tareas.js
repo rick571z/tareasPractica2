@@ -45,13 +45,13 @@ let guardarTarea = document.querySelector('#btn-guardar');
 inputName.addEventListener('keydown', guardarNuevaTarea);
 guardarTarea.addEventListener('click', guardarNuevaTarea);
 
+//=========================================================================================
+
 function getPrioridad(event) {
     miprioridad = event.target.value;
-    //console.log("la priorieadad es:" + miprioridad);
 
 }
 
-//longitud de la lista
 function longitudLista(miLista) {
     let cont = 0;
     for (let i = 0; i < miLista.length; i++) {
@@ -60,17 +60,14 @@ function longitudLista(miLista) {
     return cont;
 }
 
-//corregir el mensaje del borrado.?
 function guardarNuevaTarea(event) {
 
     if (event.type == 'click') {
-
         let tarea = inputName.value;
-        console.log("mi tarea: " + tarea);
         let contador = longitudLista(listaTareas);
 
         if ((miprioridad == 'urgente' || miprioridad == 'diaria' || miprioridad == 'mensual') && (tarea != "")) {
-            //creacion del objeto
+
             let file1 = {
                 idTarea: contador,
                 titulo: tarea,
@@ -92,4 +89,70 @@ function guardarNuevaTarea(event) {
         printListado(listaTareas);
     }
 
+}
+
+
+//=========================================================================================
+
+let nuevaSeccion = document.querySelector('#seccion');
+nuevaSeccion.addEventListener('change', getCambioPrioridad);
+
+function getCambioPrioridad(event) {
+
+    let tipoPrioridad = event.target.value;
+    let preList;
+    let catidadTarea = 0;
+
+    if (tipoPrioridad != "") {
+        switch (tipoPrioridad) {
+
+            case 'urgente':
+                preList = filtrarPorPrioridad(tipoPrioridad, listaTareas);
+                catidadTarea = longitudLista(preList);
+                if (catidadTarea == 0) {
+
+                    selectNoTarea.innerHTML = `<p>${'NO HAY TAREA Urgente !!!!'}</p>`;
+                } else {
+                    printListado(preList);
+                    selectNoTarea.innerHTML = "";
+                }
+                break;
+
+            case 'diaria':
+                preList = filtrarPorPrioridad(tipoPrioridad, listaTareas);
+                catidadTarea = longitudLista(preList);
+                if (catidadTarea == 0) {
+                    selectNoTarea.innerHTML = `<p>${'NO HAY TAREA Diaria !!!!'}</p>`;
+                } else {
+                    printListado(preList);
+                    selectNoTarea.innerHTML = "";
+                }
+                break;
+
+            case 'mensual':
+                preList = filtrarPorPrioridad(tipoPrioridad, listaTareas);
+                catidadTarea = longitudLista(preList);
+                if (catidadTarea == 0) {
+                    selectNoTarea.innerHTML = `<p>${'NO HAY TAREA Mensual !!!!'}</p>`;
+                } else {
+                    printListado(preList);
+                    selectNoTarea.innerHTML = "";
+                }
+                break;
+
+            default:
+
+        }
+
+    } else {
+        printListado(listaTareas);
+        selectNoTarea.innerHTML = "";
+    }
+}
+
+//funcion que calcula los objetos con una prioridad determinada
+//retorna una lista con los objetos de un tipo de prioridad
+function filtrarPorPrioridad(miPrioridad, listaDePrioridades) {
+    const miListaPrioridad = listaDePrioridades.filter(valor => valor.prioridad == miPrioridad);
+    return miListaPrioridad;
 }
