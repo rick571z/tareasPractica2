@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practica 2</title>
+</head>
+
+<body>
+
+    <div class="move">
+        <h1>Almacen de Tareas</h1>
+    </div>
+
+    <section class="desplazar">
+
+        <div class="div1">
+            <input type="text" id="texto" placeholder="introduce una tarea">
+
+            <select id="seleccion">
+              
+                <option value="">Seleccione tipo de prioridad</option>
+                <option value="urgente">Urgente</option>
+                <option value="diaria">Diaria</option>
+                <option value="mensual">Mensual</option>
+          
+            </select>
+
+            <button id="btn-guardar">Guardar</button>
+
+            <div id="aviso">
+                <!-- <p>TIENES QUE INGRESAR LA TAREA O SELECCIONAR UNA PRIORIDAD</p> -->
+            </div>
+
+        </div>
+
+        <div class="div2">
+            <select id="seccion">
+        
+                <option value="">Seleccione tipo de prioridad</option>
+                <option value="urgente">Urgente</option>
+                <option value="diaria">Diaria</option>
+                <option value="mensual">Mensual</option>
+          
+            </select>
+            <input type="text" id="nombre" placeholder="introduce una tarea a buscar">
+
+        </div>
+
+        <section id="listado">
+            <!-- <article>
+                <h2>Titulo de la tarea</h2>
+
+                <h3>Estudiar JS</h3>
+
+            </article> -->
+
+        </section>
+        <div id="noDatos">
+            <!-- <p>NO HAY TAREAS EN LA LISTA !!!!</p> -->
+        </div>
+
+        <hr>
+        <hr>
+
+    </section>
+
+    <script src="js/tareas.js"></script>
+
+</body>
+
+</html>
