@@ -1,0 +1,47 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+.move {
+    width: 645px;
+    position: relative;
+    margin: auto;
+    background-color: teal;
+    text-align: center;
+}
+
+.desplazar {
+    width: 700px;
+    position: relative;
+    margin: 0 auto;
+}
+
+.div1 {
+    background-color: darkgrey;
+    margin: 30px;
+    padding: 25px;
+    border-style: groove;
+}
+
+.div2 {
+    background-color: black;
+    margin: 30px;
+    padding: 25px;
+    border-style: groove;
+}
+
+.autor {
+    background-color: blue;
+    text-align: center;
+    color: white;
+    margin: 30px;
+    padding: 20px;
+    border-style: groove;
+}
+
+#aviso {
+    font-size: 15px;
+    color: red;
+}
